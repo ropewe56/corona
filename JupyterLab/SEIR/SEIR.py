@@ -1,6 +1,7 @@
 import numpy as np
 import pylab as plt
 
+
 def SEIR_step(i, S, E, I, R, N, a, b, g, d, dt):
     dd = b * E[i] * S[i] / N
     dS = - dd
