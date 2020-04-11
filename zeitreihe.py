@@ -24,16 +24,26 @@ daten = [
 [26, 36508, 198],
 [27, 42288, 253],
 [28, 48582, 325],
-#[29, 48582, 325],
+[29, 52547, 389],
+[30, 57298, 455],
+[31, 61913, 583],
+[32, 67366, 732]
 ]
 
+# https://www.spiegel.de/wissenschaft/medizin/corona-nur-sechs-prozent-der-weltweiten-faelle-werden-erfasst-a-c9520fce-a102-49fe-8290-fec96fa8ed40
+mortality = 1.38e-2
+cumulative_deaths = 732
+cumulative_detected_14_adys_before = 8198
+a = (cumulative_deaths / cumulative_detected_14_adys_before / mortality) # a = 6.5, 1/a = 0.15 = 15%
+print(a, 1/a)
+
 import numpy as np
-import pylab as plt 
+import pylab as plt
 
 d = np.array(daten)
 plt.plot(d[:,0], d[:,1])
 
-t = np.mgrid[4.0:28.0:100j]
+t = np.mgrid[4.0:35.0:100j]
 a = 1.0/5.2
 y = d[0,1] * np.exp(a*t)
 plt.plot(t, y)
